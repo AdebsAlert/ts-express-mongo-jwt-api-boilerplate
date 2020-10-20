@@ -15,6 +15,7 @@ export const PORT = throwIfUndefined(process.env.PORT, 'PORT');
 export const APP = throwIfUndefined(process.env.APP, 'APP');
 export const NODE_ENV = throwIfUndefined(process.env.NODE_ENV, 'NODE_ENV');
 export const MONGOURI = throwIfUndefined(process.env.MONGOURI, 'MONGOURI');
+export const MONGOTESTURI = throwIfUndefined(process.env.MONGOTESTURI, 'MONGOTESTURI');
 export const APP_SECRET = throwIfUndefined(process.env.APP_SECRET, 'APP_SECRET');
 export const REDIS_HOST = throwIfUndefined(process.env.REDIS_HOST, 'REDIS_HOST');
 export const MAILGUN_API_KEY = throwIfUndefined(process.env.MAILGUN_API_KEY, 'MAILGUN_API_KEY');

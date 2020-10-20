@@ -2,7 +2,7 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import express from 'express';
 import { db } from './util/db';
-import { PORT, APP } from './util/config';
+import { PORT, APP, NODE_ENV } from './util/config';
 import { userRouter } from './modules/user/routes';
 import { logger } from './util/logger';
 
@@ -20,7 +20,7 @@ app.get('/v1/status', (_req, res) => {
 app.use('/v1/user', userRouter);
 
 db.on('connected', () => {
-  logger.info('Database connected');
+  logger.info(`${NODE_ENV} database connected`);
 });
 
 export { app };

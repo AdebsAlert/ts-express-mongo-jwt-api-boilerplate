@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { MONGOURI } from './config';
+import { MONGOURI, MONGOTESTURI, NODE_ENV } from './config';
 import { logger } from './logger';
 
 require('dotenv').config();
@@ -14,9 +14,10 @@ const options = {
   useCreateIndex: true,
 };
 
+const dbCon = NODE_ENV === 'test' ? MONGOTESTURI : MONGOURI;
 mongoose
-  .connect(MONGOURI, options)
-  .then(() => logger.info('database connected'))
+  .connect(dbCon, options)
+  .then(() => logger.info(`${NODE_ENV} database connected`))
   .catch(error => {
     logger.error(error);
     process.exit(1);
