@@ -4,6 +4,8 @@
   "description": "",
   "dependencies": {
     "@hapi/joi": "^17.1.1",
+    "@types/mailgun-js": "^0.22.11",
+    "@types/mustache": "^4.0.1",
     "@types/redis": "^2.8.28",
     "app-root-path": "^3.0.0",
     "bcrypt": "^3.0.8",
@@ -13,9 +15,12 @@
     "express": "^4.17.1",
     "fs": "0.0.1-security",
     "jsonwebtoken": "^8.5.1",
+    "mailgun-js": "^0.22.0",
     "mongoose": "^5.10.9",
+    "mustache": "^4.0.1",
     "randomstring": "^1.1.5",
     "redis": "^3.0.2",
+    "ts-mailgun": "^0.4.3",
     "typescript": "^3.9.7",
     "winston": "^3.3.3"
   },

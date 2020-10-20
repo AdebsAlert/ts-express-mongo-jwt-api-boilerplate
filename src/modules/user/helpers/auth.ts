@@ -1,4 +1,3 @@
-import randomStr from 'randomstring';
 import jwt from 'jsonwebtoken';
 import { USER_TOKEN_EXPIRATION_IN_SECONDS } from '../../../util/constants';
 import { APP_SECRET } from '../../../util/config';
@@ -11,11 +10,24 @@ interface IValidatePasswordResponse {
   user?: IUser;
 }
 
-export function generateToken(): string {
-  return randomStr.generate({
-    length: 24,
-    charset: 'hex',
-  });
+export function generateEmailConfirmationToken(userID: string): string {
+  return jwt.sign(
+    {
+      _id: userID,
+    },
+    APP_SECRET,
+    {
+      expiresIn: USER_TOKEN_EXPIRATION_IN_SECONDS,
+    },
+  );
+}
+
+export function decodeEmailConfirmationToken(token: string) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let decoded: any;
+  // eslint-disable-next-line prefer-const
+  decoded = jwt.verify(token, APP_SECRET);
+  return decoded;
 }
 
 export function signJWT(userID: string, userEmail: string, role: string | undefined) {

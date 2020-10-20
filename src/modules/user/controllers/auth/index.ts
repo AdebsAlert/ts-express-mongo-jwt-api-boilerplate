@@ -1,5 +1,5 @@
 import { login, getLogged } from './login';
-import { register } from './register';
+import { register, confirmEmail } from './register';
 import { forgotPassword } from './password';
 
 export const Auth = {
@@ -7,4 +7,5 @@ export const Auth = {
   register,
   forgotPassword,
   getLogged,
+  confirmEmail,
 };

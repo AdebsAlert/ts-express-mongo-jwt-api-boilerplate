@@ -11,6 +11,7 @@ export interface IUserSchema extends mongoose.Document {
   firstname?: string | null;
   lasname?: string | null;
   role?: string;
+  emailVerified?: boolean;
 }
 
 export const userSchema = new mongoose.Schema(
@@ -37,6 +38,10 @@ export const userSchema = new mongoose.Schema(
       type: String,
       required: true,
       default: 'user',
+    },
+    emailVerified: {
+      type: Boolean,
+      default: false,
     },
   },
   {
