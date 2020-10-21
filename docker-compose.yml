@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  api:
+    container_name: typescript-mongo-jwt-api
+    restart: always
+    build: .
+    ports: 
+      - "5000:3000"
+    links: 
+      - mongodb
+      - redis
+  mongodb:
+    container_name: mongo
+    restart: always
+    image: mongo
+    hostname: localhost
+    ports:
+      - "27027:27017" 
+  redis:
+    container_name: redis
+    restart: always
+    image: redis:latest
+    ports:
+      - "6389:6379"

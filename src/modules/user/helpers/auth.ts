@@ -75,11 +75,14 @@ export const validatePassword = async ({
     if (!user) {
       return {
         success: false,
-        message: 'The email you have provided is invalid. Please try again.',
+        message: 'Invalid login credential',
       };
     }
     if (!user.password) {
       return { success: false, message: 'You have not set a password' };
+    }
+    if (!user.emailVerified) {
+      return { success: false, message: 'Please confirm your email address' };
     }
     const passwordMatch = await user.comparePassword(password);
     if (!passwordMatch) {
